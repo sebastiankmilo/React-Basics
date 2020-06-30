@@ -139,7 +139,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        
+        <Renderizado_condicional />
         <ComponenteConFuncion title="Función normal" />
         <ComponenteConFuncionAnonima title="Funcion Anonima" />
         <ComponenteConFuncionFlechaCorta />
