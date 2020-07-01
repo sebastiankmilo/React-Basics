@@ -22,7 +22,7 @@ class ComponenteB extends Component {
 class LoginButton extends Component {
   render() {
     return (
-        <button>Iniciar session</button>
+        <button onClick={this.props.evento}  >Iniciar session</button>
     );
   }
 }
@@ -52,7 +52,7 @@ export default class ComponenteConEstado extends Component {
   //Usando class field
   state = {
     mostrarA: true,
-    isUserLog: false
+    isUserLog: true
   };
   //Actualizo los estados
   constructor(props) {
@@ -61,6 +61,10 @@ export default class ComponenteConEstado extends Component {
       this.setState({ mostrarA: !this.state.mostrarA })
     }, 1000);
     
+  }
+  //Creo un evento sintetico
+  handleClick(e) {
+    console.log("e")
   }
 
   render() {
@@ -73,7 +77,7 @@ export default class ComponenteConEstado extends Component {
         <li>{UseConditionalRendering(mostrarA)}</li>
         <li><span> ELementos con Condicional Terneario</span> {elementoConCondicionalterceario}</li>
         <li><span> ELementos con Condicional Terneario</span> {mostrarA ? <ComponenteA /> : <ComponenteB />} </li>
-        <li><span> ELementos con Condicional Terneario</span> {isUserLog ? <LoginButton /> : <LogoutButton /> } </li>
+        <li><span> ELementos con Condicional Terneario</span> {isUserLog ? <LoginButton evento = {this.handleClick()} /> : <LogoutButton onClick={()=>console.log("Hola2")} /> } </li>
       </ul>
     );
   }
