@@ -64,7 +64,7 @@ class ComponenteParaExplicarProps extends Component {
     const textoSegunBool = bolean ? "cierto" : "Mentira";
     const mappedNumbers = arrayofNumbers.map(multiply);
     const element = arrayofNumbers.map((n) => (
-      <p>
+      <p key={n+"elemento"}>
         se creo un elemento dentro de un elemento y se esta mapeando desde un
         array. el doble de {n} = {n * 2}{" "}
       </p>
@@ -111,20 +111,19 @@ class ComponenteConEstado extends Component {
     contador: this.props.contadorInicial,
   };
   //Actualizo los estados
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     setInterval(() => {
       this.setState({ contador: this.state.contador + 1 });
     }, 1000);
   }
 
   render() {
-    const { contador } = this.state;
+    //const { contador } = this.state;
     return (
       <div>
         <span>
           Componente con estados inicializado con class field contador =
-          {contador}
+          {this.state.contador}
         </span>
       </div>
     );
