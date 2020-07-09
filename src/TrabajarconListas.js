@@ -31,7 +31,7 @@ export default class TrabajarConListas extends Component {
           <ul>
             {Cars.map((Car) => {
               return (
-                <Carros key={Car.id} Car={Car} />
+                <Carros key={Car.id + "2"} Car={Car} />
               )
               
             })}
